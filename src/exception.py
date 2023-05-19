@@ -1,5 +1,6 @@
 import sys
 import logging
+from src.logger import logging
 
 '''
 error_message_detail function is preparing how will the error be shown with the help of 
