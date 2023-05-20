@@ -9,6 +9,9 @@ from dataclasses import dataclass
 
 from src.components.data_transformation import DataTransformation
 from src.components.data_transformation import DataTransformationConfig
+from src.components.model_trainer import ModelTrainerConfig, ModelTrainer
+
+
 '''
 Defining a class to declare the path for multiple purposes (train_data, test_data, or any output)
 Using @dataclass detractor allows us to define our set of variables in the class, otherwise we have to use init and initialize the variables
@@ -58,5 +61,8 @@ if __name__ == "__main__":
     train_path, test_path = obj.initiate_data_ingestion()
 
     data_transformation = DataTransformation()
-
-    data_transformation.initiate_data_transformation(train_path, test_path)
+    train_arr, test_arr, _ = data_transformation.initiate_data_transformation(train_path, test_path)
+    
+    
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_trainer(train_arr, test_arr))
